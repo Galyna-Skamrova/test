@@ -7,6 +7,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
+          <NumRows value="4" />
           <NumRows value="3" />
           <Fields>
             <Field name="Field1" />
@@ -20,6 +21,9 @@
             </r>
             <r>
               <c>3</c>
+            </r>
+            <r>
+              <c>4</c>
             </r>
           </Data>
         </Configuration>
