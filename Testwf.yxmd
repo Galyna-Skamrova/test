@@ -7,11 +7,10 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-<<<<<<< Updated upstream
+
           <NumRows value="3" />
-=======
+          <NumRows value="4" />
           <NumRows value="5" />
->>>>>>> Stashed changes
           <Fields>
             <Field name="Field1" />
           </Fields>
@@ -25,15 +24,13 @@
             <r>
               <c>3</c>
             </r>
-<<<<<<< Updated upstream
-=======
             <r>
               <c>4</c>
             </r>
             <r>
               <c>5</c>
             </r>
->>>>>>> Stashed changes
+
           </Data>
         </Configuration>
         <Annotation DisplayMode="0">

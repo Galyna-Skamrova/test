@@ -8,6 +8,7 @@
       <Properties>
         <Configuration>
           <NumRows value="4" />
+          <NumRows value="3" />
           <Fields>
             <Field name="Field1" />
           </Fields>
