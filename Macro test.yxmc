@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="294" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output3</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
+        <Position x="78" y="30" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="138" y="102" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="138" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">\\172.26.23.47\A-Analytics\OutputFiles\WMT_Formulary\WMT Formulary History.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>WMT Formulary History.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="OVERALL_UNIVERSE_KEY" size="16777216" source="(Multiple Sources)" type="V_WString" />
+            <Field name="GPI_PACK_PRIMARY_KEY" size="16777216" source="File: (Multiple Sources)" type="V_WString" />
+            <Field name="PRIMARY_NDC" size="16777216" source="File: (Multiple Sources)" type="V_WString" />
+            <Field name="CHANNEL" size="16777216" source="File: (Multiple Sources)" type="V_WString" />
+            <Field name="WMT_DC_INDICATOR" size="16777216" source="(Multiple Sources)" type="V_WString" />
+            <Field name="GLOBAL_ITEM_ID" size="16777216" source="File: (Multiple Sources)" type="V_WString" />
+            <Field name="WMT_DC_COMPLIANCE_PACK" size="16777216" source="File: (Multiple Sources)" type="V_WString" />
+            <Field name="FOUR_PROGRAM_IND" size="16777216" source="(Multiple Sources)" type="V_WString" />
+            <Field name="SUPPLIER_NME" size="16777216" source="File: (Multiple Sources)" type="V_WString" />
+            <Field name="PRIMARY_DESC" size="16777216" source="File: (Multiple Sources)" type="V_WString" />
+            <Field name="FDB_GCN" size="16777216" source="File: (Multiple Sources)" type="V_WString" />
+            <Field name="DUAL_SOURCED_IND" size="16777216" source="(Multiple Sources)" type="V_WString" />
+            <Field name="FROM_DT" source="(Multiple Sources)" type="Date" />
+            <Field description="Formula: if ([Row+1:OVERALL_UNIVERSE_KEY]=[OVERALL_UNIVERSE_KEY] and [Row+1:GPI_PACK_PRIMARY_KEY]=[GPI_PACK_PRIMARY_KEY] and [Row+1:PRIMARY_NDC]=[PRIMARY_NDC] and [Row+1:CHANNEL]=[CHANNEL]) &#xA;and [TO_DT] = ToDate(&quot;9999-12-31 00:00:00&quot;)&#xA;then DateTimeAdd([Row+1:FROM_DT],-1,'days')&#xA;else [TO_DT]&#xA;endif" name="TO_DT" source="Formula: if ([Row+1:OVERALL_UNIVERSE_KEY]=[OVERALL_UNIVERSE_KEY] and [Row+1:GPI_PACK_PRIMARY_KEY]=[GPI_PACK_PRIMARY_KEY] and [Row+1:PRIMARY_NDC]=[PRIMARY_NDC] and [Row+1:CHANNEL]=[CHANNEL]) &#xA;and [TO_DT] = ToDate(&quot;9999-12-31 00:00:00&quot;)&#xA;then DateTimeAdd([Row+1:FROM_DT],-1,'days')&#xA;else [TO_DT]&#xA;endif" type="Date" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection name="#1">
+      <Origin ToolID="5" Connection="Question" />
+      <Destination ToolID="6" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="6" Connection="Action" />
+      <Destination ToolID="7" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>File Browse (5)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Macro test</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="6" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>7/File</Destination>
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (3)</Description>
+              <Name>Macro Output (3)</Name>
+              <ToolId value="3" />
+            </Question>
+            <Question>
+              <Type>FileBrowse</Type>
+              <Description>Select a file</Description>
+              <Name>File Browse (5)</Name>
+              <ToolId value="5" />
+              <SaveAs value="False" />
+              <Mode>DW2</Mode>
+              <DW2_SpatialOnly value="False" />
+              <DW2_FieldMap value="False" />
+              <InputToolId value="-1" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="3" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
